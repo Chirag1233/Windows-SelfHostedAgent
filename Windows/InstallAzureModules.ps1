@@ -7,7 +7,7 @@
 
 		Purpose:	Installs the Azure Powershell AZ modules and Azure CLI cmdlets. 
 
-		Version: 	1.0.0.0 - 11th September 2019 - BUMA Build Release Deployment Team
+		Version: 	1.0.0.0 - 11th September 2019
 		==============================================================================================
 
 	.SYNOPSIS
