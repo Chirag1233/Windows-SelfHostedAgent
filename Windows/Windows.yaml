@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: winagent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: winagent
+  template:
+    metadata:
+      labels:
+        app: winagent
+        version: "0.1"
+    spec:
+      containers:
+      - name: winagent
+        image: omchiragdave.azurecr.io/winagent:latest
+        ports:
+        - containerPort: 443
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "1"
+          limits:
+            memory: "956Mi"
+            cpu: "2"
+        env:
+          - name: AZP_URL
+            valueFrom:
+              secretKeyRef:
+                name: azuredevops
+                key: AZP_URL
+          - name: AZP_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: azuredevops
+                key: AZP_TOKEN
+          - name: AZP_POOL
+            valueFrom:
+              secretKeyRef:
+                name: azuredevops
+                key: AZP_POOL
+          - name: AZP_AGENT_NAME
+            value: myAKSAgent
+      nodeSelector:
+        beta.kubernetes.io/os: windows
