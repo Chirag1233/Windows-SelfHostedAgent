@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: vstslinuxbuild
-        image: omchiragdave.azurecr.io/linagent:latest
+        image: {Container_Image_Details}
         ports:
         - containerPort: 443
         resources:

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: winagent
-        image: omchiragdave.azurecr.io/winagent:latest
+        image: {Container_Image_Details}
         ports:
         - containerPort: 443
         resources:
